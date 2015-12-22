@@ -6,10 +6,23 @@
 /*   By: hponcet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/22 21:58:05 by hponcet           #+#    #+#             */
-/*   Updated: 2015/12/22 21:59:34 by hponcet          ###   ########.fr       */
+/*   Updated: 2015/12/22 22:32:03 by hponcet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+void		ft_freetab(**tab)
+{
+	int		i;
 
+	i = 0;
+	while (tab[i])
+	{
+		ft_strdel(*(tab[i]));
+		i++;
+	}
+	tab = NULL;
+	if (tab[1])
+		ft_putstr("RATE");
+}
