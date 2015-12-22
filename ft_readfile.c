@@ -6,7 +6,7 @@
 /*   By: fde-monc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 15:39:15 by fde-monc          #+#    #+#             */
-/*   Updated: 2015/12/22 16:00:32 by fde-monc         ###   ########.fr       */
+/*   Updated: 2015/12/22 23:59:08 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ t_tris		**ft_createtab(char *file)
 		ft_putendl("error : INVALID FILE");
 		return (0);
 	}
-	ft_putendl("SUCESS MA CHATOUNET");
 	return (tab);
 }
 
