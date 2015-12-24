@@ -6,11 +6,12 @@
 /*   By: hponcet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/23 00:24:45 by hponcet           #+#    #+#             */
-/*   Updated: 2015/12/23 06:16:26 by hponcet          ###   ########.fr       */
+/*   Updated: 2015/12/24 12:31:39 by hponcet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "fillit.h"
 
 int			ft_checkttris(char **grid, t_tris *ttris, int gx, int gy)
 {
@@ -23,8 +24,12 @@ int			ft_checkttris(char **grid, t_tris *ttris, int gx, int gy)
 	{
 		bx = gx + ttris->coord[y][0];
 		by = gy + ttris->coord[y][1];
-		if (grid[bx][by] == '#' || grid[bx] > ft_rootforgrid(ttris)
-				|| grid[bx][by] > ft_rootforgrid(ttris))
+		ft_putnbr(bx);
+		ft_putchar(", ");
+		ft_putnbr(by);
+		ft_putendl("");
+		if (grid[bx][by] == '#' || bx > ft_rootforgrid(&(ttris))
+				|| by > ft_rootforgrid(&(ttris)))
 			return (0);
 		else
 			y++;
@@ -60,7 +65,7 @@ char		**ft_deletettris(char **grid, t_tris *ttris, int gx, int gy)
 	{
 		bx = gx + ttris->coord[y][0];
 		by = gy + ttris->coord[y][1];
-		grid[bx][by] = '\0';
+		grid[bx][by] = '.';
 		y++;
 	}
 	return (grid);
