@@ -6,7 +6,7 @@
 /*   By: fde-monc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 15:39:15 by fde-monc          #+#    #+#             */
-/*   Updated: 2015/12/22 23:59:08 by fde-monc         ###   ########.fr       */
+/*   Updated: 2015/12/24 12:08:52 by hponcet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_tris		**ft_createtab(char *file)
 	int		i;
 	char	buf[21];
 	t_tris	**tab;
+<<<<<<< HEAD
 
 	i = 0;
 	ttris = ft_readfile(file);
@@ -43,7 +44,7 @@ t_tris		**ft_createtab(char *file)
 	return (tab);
 }
 
-t_tris		*ft_maketris(char *buf)
+t_tris		*ft_makettris(char *buf)
 {
 	t_tris	*tetrim;
 	int 	col;
