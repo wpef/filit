@@ -18,6 +18,7 @@ int		main(int ac, char **av)
 	t_tris		**ttris;
 	char		**grid;
 	int			i;
+	int		j;
 
 	i = 0;
 	if (ac > 2)
@@ -26,6 +27,18 @@ int		main(int ac, char **av)
 	ft_putendl("TTRIS correctly created.");
 
 	grid = ft_creategrid(ft_rootforgrid(ttris), ft_rootforgrid(ttris));
+	// Affichage du tableau
+	while (grid[i])
+	{
+		j = 0;
+		while (grid[i][j])
+		{
+			ft_putchar(grid[i][j]);
+			j++;
+		}
+		ft_putendl("");
+		i++;
+	}
 	ft_putendl("Grid correctly created");
 	while (ttris[i] != NULL)
 	{

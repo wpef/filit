@@ -25,7 +25,7 @@ int			ft_checkttris(char **grid, t_tris *ttris, int gx, int gy)
 		bx = gx + ttris->coord[y][0];
 		by = gy + ttris->coord[y][1];
 		ft_putnbr(bx);
-		ft_putchar(", ");
+		ft_putchar(',');
 		ft_putnbr(by);
 		ft_putendl("");
 		if (grid[bx][by] == '#' || bx > ft_rootforgrid(&(ttris))
