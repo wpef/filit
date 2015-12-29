@@ -85,7 +85,6 @@ t_tris		*ft_replacettris(t_tris *ttris)
 	j = 0;
 	while (i < 2)
 	{
-		//pourquoi 0 ? Pourquoi pas i ?
 		n0 = ttris->coord[j][0];
 		while (j < 4)
 		{
@@ -97,7 +96,6 @@ t_tris		*ft_replacettris(t_tris *ttris)
 		while (j < 4)
 		{
 			ttris->coord[j][i] = ttris->coord[j][i] - n0;
-			//ttris->coord[j][i] = ttris->coord[j] >>>>>>[i - n0]<<<<<<<<< non ?;
 			j++;
 		}
 		j = 0;
