@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-t_tris		**ft_createtab(char *file)
+t_tris		**ft_createttris(char *file) //Modif du nom (deja utilise)
 {
 	int		fd;
 	int		ret;
@@ -20,18 +20,17 @@ t_tris		**ft_createtab(char *file)
 	int		i;
 	char	buf[21];
 	t_tris	**tab;
-<<<<<<< HEAD
 
 	i = 0;
 	ttris = ft_readfile(file);
 	if (ttris > 0)
 	{
-		tab = (t_tris **)malloc(sizeof(t_tris) * ttris);
+		tab = (t_tris **)malloc(sizeof(t_tris *) * ttris);
 		fd = open(file, O_RDONLY);
 		while ((ret = read (fd, buf, 21)) > 0)
 		{
 			buf[20] = '\0';
-			tab[i] = ft_maketris(buf);
+			tab[i] = ft_makettris(buf);
 			tab[i]->ltr = 'A'+i;
 			i++;
 		}
@@ -44,7 +43,7 @@ t_tris		**ft_createtab(char *file)
 	return (tab);
 }
 
-t_tris		*ft_makettris(char *buf)
+t_tris		*ft_makettris(char *buf) // modif du nom pour la clartee
 {
 	t_tris	*tetrim;
 	int 	col;
@@ -57,12 +56,12 @@ t_tris		*ft_makettris(char *buf)
 	i = 0;
 	j = 0;
 	tetrim = (t_tris *)malloc(sizeof(t_tris));
-	while (buf[i] != '\0' && line < 5)
+	while (buf[i] != '\0' && line < 4)
 	{
 		if (buf[i] == '#')
 		{
-			tetrim->coord[j][0] = line;
-			tetrim->coord[j][1] = col;
+			tetrim->coord[j][0] = col;
+			tetrim->coord[j][1] = line;
 			j++;
 			i++;
 			col++;
@@ -79,7 +78,37 @@ t_tris		*ft_makettris(char *buf)
 			i++;
 		}
 	}
-	return (tetrim);
+	return (ft_replacettris(tetrim));
+}
+
+// Fonction placant le point d'origine a 0, 0
+t_tris		*ft_replacettris(t_tris *ttris) 
+{
+	int		n0;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	while (i < 2)
+	{
+		n0 = ttris->coord[j][0];
+		while (j < 4)
+		{
+			if (ttris->coord[j][i] < n0)
+				n0 = ttris->coord[j][i];
+			j++;
+		}
+		j = 0;
+		while (j < 4)
+		{
+			ttris->coord[j][i] = ttris->coord[j][i] - n0;
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	return (ttris);
 }
 
 int			ft_touch(char *buf)
@@ -181,15 +210,4 @@ int			ft_readfile(char *file)
 	}
 	close(fd);
 	return (ttris);
-}
-
-int			main(int ac, char **av)
-{	
-	if (ac > 2)
-	{
-		ft_putendl("NOTHING TURNED IN");
-		return (0);
-	}
-	ft_createtab(av[1]);
-	return (0);
 }

@@ -18,6 +18,9 @@ int		main(int ac, char **av)
 	t_tris		**ttris;
 	char		**grid;
 	int			i;
+	int			j;
+	int			k;
+	int			l;
 
 	i = 0;
 	if (ac > 2)
@@ -26,18 +29,49 @@ int		main(int ac, char **av)
 	ft_putendl("TTRIS correctly created.");
 
 	grid = ft_creategrid(ft_rootforgrid(ttris), ft_rootforgrid(ttris));
-	ft_putendl("Grid correctly created");
+	ft_putendl("Grid correctly created :");
+
+	// Affichage de la grille vide //
+	while (grid[i])
+	{
+		j = 0;
+		while (grid[i][j])
+		{
+			ft_putchar(grid[i][j]);
+			j++;
+		}
+		ft_putendl("");
+		i++;
+	}
+	i = 0;
 	while (ttris[i] != NULL)
 	{
 		if (ft_checkttris(grid, ttris[i], 0, 0) == 1)
 		{
 			ft_putendl("Check TTRIS in grid OK.");
-			grid = ft_writettris(grid, ttris[0], 0, 0);
+			grid = ft_writettris(grid, ttris[i], 0, 0);
 			ft_putendl("Write TTRIS in grid OK.");
 		}
 		else
 			ft_putendl("Check TTRIS in grid FALSE.");
+		// Print writed grid
+		k = 0;
+		l = 0;
+		while (grid[k])
+		{
+			l = 0;
+			while (grid[k][l])
+			{
+				ft_putchar(grid[k][l]);
+				l++;
+			}
+			ft_putendl("");
+			k++;
+		}
+		// Delete grid
+		grid = ft_deletettris(grid, ttris[i], 0, 0);
 		i++;
 	}
+
 	return (0);
 }
