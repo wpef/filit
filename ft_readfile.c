@@ -46,7 +46,7 @@ t_tris		**ft_createttris(char *file) //Modif du nom (deja utilise)
 
 t_tris		*ft_makettris(char *buf) // modif du nom pour la clartee
 {
-	t_tris	*tetrim;
+	t_tris	*ttris;
 	int 	col;
 	int 	line;
 	int 	i;
@@ -56,13 +56,13 @@ t_tris		*ft_makettris(char *buf) // modif du nom pour la clartee
 	line = 0;
 	i = 0;
 	j = 0;
-	tetrim = (t_tris *)malloc(sizeof(t_tris));
+	ttris = (t_tris *)malloc(sizeof(t_tris));
 	while (buf[i] != '\0' && line < 4)
 	{
 		if (buf[i] == '#')
 		{
-			tetrim->coord[j][0] = col;
-			tetrim->coord[j][1] = line;
+			ttris->coord[j][0] = col;
+			ttris->coord[j][1] = line;
 			j++;
 			i++;
 			col++;
@@ -79,7 +79,7 @@ t_tris		*ft_makettris(char *buf) // modif du nom pour la clartee
 			i++;
 		}
 	}
-	return (ft_replacettris(tetrim));
+	return (ft_replacettris(ttris));
 }
 
 int			ft_touch(char *buf)
