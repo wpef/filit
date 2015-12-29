@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "fillit.h"
 
-int		main(int ac, char **av)
+int			main(int ac, char **av)
 {
 	t_tris		**ttris;
 	char		**grid;
@@ -54,9 +54,37 @@ int		main(int ac, char **av)
 		}
 		// Delete grid
 		grid = ft_deletettris(grid, ttris[i], 0, 0);
+		
+		// Modify grid (+1)
 		grid = ft_modifgrid(grid);
 		i++;
 	}
 
 	return (0);
+}
+
+int			ft_fillit(char **grid, t_tris *ttris)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	while (grid[i] && ttris != NULL)
+	{
+		while (grid[i][j])
+		{
+			if (ft_checkttris(grid, ttris, 0, 0) == 1)
+			{
+				grid = ft_writettris(grid, ttris, 0, 0);
+				ft_fillit(grid, ttris++, 0, 0);
+			}
+			else
+				j++;
+		}
+		j = 0;
+		i++;
+	}
+	if (ttris == NULL)
+		ft_fillit(
 }
