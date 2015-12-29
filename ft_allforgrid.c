@@ -56,14 +56,5 @@ char		**ft_modifgrid(char **grid)
 	while (grid[i][count])
 		count++;
 	newtab = ft_creategrid(count + 1, count + 1);
-	while (j < count)
-	{
-		while (grid[i] && newtab[j])
-		{
-			newtab[j] = ft_strncpy(newtab[j], grid[i], count);
-			i++;
-			j++;
-		}
-	}
 	return (newtab);
 }
