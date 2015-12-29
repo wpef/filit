@@ -26,10 +26,6 @@ int			ft_checkttris(char **grid, t_tris *ttris, int gx, int gy)
 	{
 		bx = gx + ttris->coord[y][0];
 		by = gy + ttris->coord[y][1];
-		ft_putnbr(bx);
-		ft_putchar(',');
-		ft_putnbr(by);
-		ft_putendl("");
 		if (grid[bx][by] == '#' || bx > ft_rootforgrid(&(ttris))
 				|| by > ft_rootforgrid(&(ttris)))
 			return (0);
@@ -77,4 +73,33 @@ char		**ft_deletettris(char **grid, t_tris *ttris, int gx, int gy)
 		i++;
 	}
 	return (grid);
+}
+
+t_tris		*ft_replacettris(t_tris *ttris) 
+{
+	int		n0;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	while (i < 2)
+	{
+		n0 = ttris->coord[j][0];
+		while (j < 4)
+		{
+			if (ttris->coord[j][i] < n0)
+				n0 = ttris->coord[j][i];
+			j++;
+		}
+		j = 0;
+		while (j < 4)
+		{
+			ttris->coord[j][i] = ttris->coord[j][i] - n0;
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	return (ttris);
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_algogol.c                                       :+:      :+:    :+:   */
+/*   ft_allforgrid.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hponcet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -46,10 +46,24 @@ char		**ft_creategrid(int x, int y)
 char		**ft_modifgrid(char **grid)
 {
 	int		i;
+	int		j;
+	int		count;
+	char	**newtab;
 
 	i = 0;
-	while (grid[i] != NULL)
-		i++;
-	grid = ft_modiftab(grid, i + 1, i + 1);
-	return (grid);
+	j = 0;
+	count = 0;
+	while (grid[i][count])
+		count++;
+	newtab = ft_creategrid(count + 1, count + 1);
+	while (j < count)
+	{
+		while (grid[i] && newtab[j])
+		{
+			newtab[j] = ft_strncpy(newtab[j], grid[i], count);
+			i++;
+			j++;
+		}
+	}
+	return (newtab);
 }

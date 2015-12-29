@@ -18,7 +18,6 @@ int		main(int ac, char **av)
 	t_tris		**ttris;
 	char		**grid;
 	int			i;
-	int			j;
 	int			k;
 	int			l;
 
@@ -26,23 +25,8 @@ int		main(int ac, char **av)
 	if (ac > 2)
 		return (0);
 	ttris = ft_createttris(av[1]);
-	ft_putendl("TTRIS correctly created.");
-
 	grid = ft_creategrid(ft_rootforgrid(ttris), ft_rootforgrid(ttris));
-	ft_putendl("Grid correctly created :");
 
-	// Affichage de la grille vide //
-	while (grid[i])
-	{
-		j = 0;
-		while (grid[i][j])
-		{
-			ft_putchar(grid[i][j]);
-			j++;
-		}
-		ft_putendl("");
-		i++;
-	}
 	i = 0;
 	while (ttris[i] != NULL)
 	{
@@ -70,6 +54,7 @@ int		main(int ac, char **av)
 		}
 		// Delete grid
 		grid = ft_deletettris(grid, ttris[i], 0, 0);
+		grid = ft_modifgrid(grid);
 		i++;
 	}
 

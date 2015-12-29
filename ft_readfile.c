@@ -25,7 +25,8 @@ t_tris		**ft_createttris(char *file) //Modif du nom (deja utilise)
 	ttris = ft_readfile(file);
 	if (ttris > 0)
 	{
-		tab = (t_tris **)malloc(sizeof(t_tris *) * ttris);
+		tab = (t_tris **)malloc(sizeof(t_tris *) * ttris + 1);
+		tab[ttris] = NULL;
 		fd = open(file, O_RDONLY);
 		while ((ret = read (fd, buf, 21)) > 0)
 		{
@@ -79,36 +80,6 @@ t_tris		*ft_makettris(char *buf) // modif du nom pour la clartee
 		}
 	}
 	return (ft_replacettris(tetrim));
-}
-
-// Fonction placant le point d'origine a 0, 0
-t_tris		*ft_replacettris(t_tris *ttris) 
-{
-	int		n0;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	while (i < 2)
-	{
-		n0 = ttris->coord[j][0];
-		while (j < 4)
-		{
-			if (ttris->coord[j][i] < n0)
-				n0 = ttris->coord[j][i];
-			j++;
-		}
-		j = 0;
-		while (j < 4)
-		{
-			ttris->coord[j][i] = ttris->coord[j][i] - n0;
-			j++;
-		}
-		j = 0;
-		i++;
-	}
-	return (ttris);
 }
 
 int			ft_touch(char *buf)
