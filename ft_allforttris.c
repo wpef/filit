@@ -104,3 +104,33 @@ t_tris		*ft_replacettris(t_tris *ttris)
 	}
 	return (ttris);
 }
+
+int		*ft_whereisttris(char **grid, t_tris *ttris)
+{
+		int	ret[2];
+		int	x;
+		int	y;
+		int	*retour;
+
+		retour = ret;
+		x = 0;
+		y = 0;
+		ret[0] = 0;
+		ret[1] = 0;
+		while (grid[x])
+		{
+			while (grid[x][y])
+			{
+				if (grid[x][y] == ttris->ltr)
+				{
+					if (x < ret[0])
+				 		ret[0] = x;
+					if (y < ret[1])
+						ret[1] = y;
+				}
+				y++;
+			}
+			x++;
+		}
+		return (retour);
+}
