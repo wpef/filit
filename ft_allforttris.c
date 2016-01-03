@@ -26,8 +26,8 @@ int			ft_checkttris(char **grid, t_tris *ttris, int gx, int gy)
 	{
 		bx = gx + ttris->coord[y][0];
 		by = gy + ttris->coord[y][1];
-		if (grid[bx][by] != '.' || bx > ft_rootforgrid(&(ttris))
-				|| by > ft_rootforgrid(&(ttris)))
+		if (grid[bx][by] != '.' || bx > ft_checkgridlen(grid)
+				|| by > ft_checkgridlen(grid))
 			return (0);
 		y++;
 		i++;
