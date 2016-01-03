@@ -19,7 +19,7 @@ int			ft_checkttris(char **grid, t_tris *ttris, int gx, int gy)
 	int			bx;
 	int			by;
 	int			i;
-
+	
 	y = 0;
 	i = 0;
 	while (i < 4)
@@ -48,7 +48,7 @@ char		**ft_writettris(char **grid, t_tris *ttris, int gx, int gy)
 	{
 		bx = gx + ttris->coord[y][0];
 		by = gy + ttris->coord[y][1];
-		grid[by][bx] = ttris->ltr;
+		grid[bx][by] = ttris->ltr;
 		y++;
 		i++;
 	}

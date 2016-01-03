@@ -26,7 +26,7 @@ int			main(int ac, char **av)
 		return (0);
 	ttris = ft_createttris(av[1]);
 	grid = ft_creategrid(ft_rootforgrid(ttris), ft_rootforgrid(ttris));
-	while (ft_fillit(grid, ttris, 0, 0, 0) == 0)
+	while (ft_fillit(grid, ttris, 0, 0) == 0)
 			grid = ft_modifgrid(grid);
 	// Print writed grid
 	k = 0;
@@ -45,13 +45,14 @@ int			main(int ac, char **av)
 	return (0);
 }
 
-int			ft_fillit(char **grid, t_tris **ttris, int x, int y, int t)
+int			ft_fillit(char **grid, t_tris **ttris, int x, int y)
 {
 	int	*orig;
 	int	k;
 	int	l;
 
 	ft_putendl("Initialisation");
+
 	////////////////////////////////////// DEBUG
 	k = 0;
 	l = 0;
@@ -71,21 +72,23 @@ int			ft_fillit(char **grid, t_tris **ttris, int x, int y, int t)
 	{
 		while (grid[x][y])
 		{
-			if (ttris[t] == NULL) // If all VALID
+			grid = ft_deletettris(grid, ttris[0]);
+			if (ttris == NULL) // If all VALID
 				return (1);
-			grid = ft_deletettris(grid, ttris[t]);
-			if (grid[x + 1] == '\0' && grid[x][y + 1] == '\0' && ttris[t]->ltr == 'A') // If end and not valid
+			if (grid[x + 1] == '\0' && grid[x][y + 1] == '\0' && ttris[0]->ltr == 'A') // If end and not valid
 				return (0);
-			if (ft_checkttris(grid, ttris[t], y, x) == 1) // If ttris VALID
+			if (ft_checkttris(grid, ttris[0], x, y) == 1) // If ttris VALID
 			{
-				grid = ft_writettris(grid, ttris[t], x, y);
-				ft_fillit(grid, &(ttris[t]), 0, 0, t + 1);
+				grid = ft_writettris(grid, ttris[0], x, y);
+				ft_fillit(grid, ttris + 1, 0, 0);
 			}
-			if (grid[x + 1] == '\0' && grid[x][y + 1] == '\0') // If end and not valid
+			if ((grid[x + 1] == '\0' && grid[x][y + 1] == '\0') ||
+				 (grid[x] == '\0' && grid[x][y] == '\0')) // If end and not valid
 			{
-				orig = ft_whereisttris(grid, ttris[t - 1]);
-				ft_fillit(grid, &(ttris[t]), orig[0], orig[1], t - 1);
+				orig = ft_whereisttris(grid, ttris[-1]);
+				ft_fillit(grid, ttris + 1, orig[0], orig[1]);
 			}
+			ft_putnbr(x), ft_putnbr(y);
 			y++;
 		}
 		x++;
