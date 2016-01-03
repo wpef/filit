@@ -22,6 +22,17 @@ int			ft_rootforgrid(t_tris **ttris)
 		nb++;
 	return (ft_rootsquare(nb * 4));
 }
+
+int		ft_checkgridlen(char **grid)
+{
+	int	i;
+
+	i = 0;
+	while (grid[i] != NULL)
+		i++;
+	return (i);
+}
+
 char		**ft_creategrid(int x, int y)
 {
 	char		**grid;

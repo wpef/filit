@@ -71,20 +71,20 @@ int			ft_fillit(char **grid, t_tris **ttris, int x, int y, int t)
 	{
 		while (grid[x][y])
 		{
-			if (ttris == NULL) // If all VALID
+			if (ttris[t] == NULL) // If all VALID
 				return (1);
+			grid = ft_deletettris(grid, ttris[t]);
 			if (grid[x + 1] == '\0' && grid[x][y + 1] == '\0' && ttris[t]->ltr == 'A') // If end and not valid
 				return (0);
-			if (ft_checkttris(grid, ttris[t], x, y) == 1) // If ttris VALID
+			if (ft_checkttris(grid, ttris[t], y, x) == 1) // If ttris VALID
 			{
 				grid = ft_writettris(grid, ttris[t], x, y);
-				ft_fillit(grid, &(ttris[t + 1]), 0, 0, t + 1);
+				ft_fillit(grid, &(ttris[t]), 0, 0, t + 1);
 			}
-			if (grid[x + 1] == '\0' && grid[x][y + 1] == '\0') // If grid end and NOT VALID
+			if (grid[x + 1] == '\0' && grid[x][y + 1] == '\0') // If end and not valid
 			{
 				orig = ft_whereisttris(grid, ttris[t - 1]);
-				grid = ft_deletettris(grid, ttris[t - 1]);
-				ft_fillit(grid, ttris - 1, orig[0], orig[1] + 1, t - 1);
+				ft_fillit(grid, &(ttris[t]), orig[0], orig[1], t - 1);
 			}
 			y++;
 		}
