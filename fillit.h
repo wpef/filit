@@ -35,7 +35,7 @@ char		**ft_modifgrid(char **grid);
 char		**ft_creategrid(int x, int y);
 t_tris		*ft_replacettris(t_tris *ttris);
 int		ft_fillit(char **grid, t_tris **ttris, int x, int y);
-int		*ft_whereisttris(char **grid, t_tris *trtis);
+int		*ft_whereisttris(char **grid, t_tris **trtis);
 int		ft_checkgridlen(char **grid);
 
 

@@ -26,6 +26,8 @@ int			ft_checkttris(char **grid, t_tris *ttris, int gx, int gy)
 	{
 		bx = gx + ttris->coord[y][0];
 		by = gy + ttris->coord[y][1];
+		if (bx > ft_checkgridlen(grid) && by > ft_checkgridlen(grid))
+			return (2);
 		if (grid[bx][by] != '.' || bx > ft_checkgridlen(grid)
 				|| by > ft_checkgridlen(grid))
 			return (0);
@@ -105,7 +107,7 @@ t_tris		*ft_replacettris(t_tris *ttris)
 	return (ttris);
 }
 
-int		*ft_whereisttris(char **grid, t_tris *ttris)
+int		*ft_whereisttris(char **grid, t_tris **ttris)
 {
 		int	ret[2];
 		int	x;
@@ -117,11 +119,12 @@ int		*ft_whereisttris(char **grid, t_tris *ttris)
 		y = 0;
 		ret[0] = 0;
 		ret[1] = 0;
-		while (grid[x])
+		ft_putchar(ttris[0]->ltr);
+		while (grid[x] != NULL)
 		{
-			while (grid[x][y])
+			while (grid[x][y] != '\0')
 			{
-				if (grid[x][y] == ttris->ltr)
+				if (grid[x][y] == ttris[0]->ltr)
 				{
 					if (x < ret[0])
 				 		ret[0] = x;

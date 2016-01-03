@@ -47,7 +47,6 @@ int			main(int ac, char **av)
 
 int			ft_fillit(char **grid, t_tris **ttris, int x, int y)
 {
-	int	*orig;
 	int	k;
 	int	l;
 
@@ -68,26 +67,18 @@ int			ft_fillit(char **grid, t_tris **ttris, int x, int y)
 		k++;
 	}
 	/////////////////////////////////////// DEBUG
-	while (grid[x])
+	while (grid[x] != NULL)
 	{
-		while (grid[x][y])
+		y = 0;
+		while (grid[x][y] != '\0')
 		{
 			grid = ft_deletettris(grid, ttris[0]);
-			if (ttris == NULL) // If all VALID
-				return (1);
-			if (grid[x + 1] == '\0' && grid[x][y + 1] == '\0' && ttris[0]->ltr == 'A') // If end and not valid
-				return (0);
 			if (ft_checkttris(grid, ttris[0], x, y) == 1) // If ttris VALID
 			{
 				grid = ft_writettris(grid, ttris[0], x, y);
 				ft_fillit(grid, ttris + 1, 0, 0);
 			}
-			if ((grid[x + 1] == '\0' && grid[x][y + 1] == '\0') ||
-				 (grid[x] == '\0' && grid[x][y] == '\0')) // If end and not valid
-			{
-				orig = ft_whereisttris(grid, ttris[-1]);
-				ft_fillit(grid, ttris + 1, orig[0], orig[1]);
-			}
+			
 			ft_putnbr(x), ft_putnbr(y);
 			y++;
 		}

@@ -49,8 +49,10 @@ char		**ft_creategrid(int x, int y)
 			grid[i][j] = '.';
 			j++;
 		}
+		grid[i][j] = '\0';
 		i++;
 	}
+	grid[i] = NULL;
 	return (grid);
 }
 
