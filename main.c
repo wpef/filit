@@ -78,7 +78,6 @@ int			ft_fillit(char **grid, t_tris **ttris, int x, int y)
 				grid = ft_writettris(grid, ttris[0], x, y);
 				ft_fillit(grid, ttris + 1, 0, 0);
 			}
-			
 			ft_putnbr(x), ft_putnbr(y);
 			y++;
 		}
