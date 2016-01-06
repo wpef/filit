@@ -49,9 +49,7 @@ int			ft_fillit(char **grid, t_tris **ttris, int x, int y)
 {
 	int	k;
 	int	l;
-	int	*orig;
 
-	orig = NULL;
 	while (grid[x] != NULL)
 	{
 		y = 0;
@@ -59,7 +57,7 @@ int			ft_fillit(char **grid, t_tris **ttris, int x, int y)
 		{
 			grid = ft_deletettris(grid, ttris[0]);
 			if (ft_checkttris(grid, ttris[0], x, y) == 2)
-					return (0);
+				ft_putendl("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
 			if (ft_checkttris(grid, ttris[0], x, y) == 1) // If ttris VALID
 			{
 				grid = ft_writettris(grid, ttris[0], x, y);
@@ -92,11 +90,7 @@ int			ft_fillit(char **grid, t_tris **ttris, int x, int y)
 
 				ft_fillit(grid, ttris + 1, 0, 0);
 			}
-<<<<<<< HEAD
-			ft_putnbr(x), ft_putnbr(y);
-=======
 			ft_putnbr(x), ft_putnbr(y), ft_putchar(' ');
->>>>>>> 8e4fb89ec59a18df1609d6109e828170c4a57dee
 			y++;
 		}
 		x++;
