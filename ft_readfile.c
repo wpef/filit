@@ -61,8 +61,8 @@ t_tris		*ft_makettris(char *buf) // modif du nom pour la clartee
 	{
 		if (buf[i] == '#')
 		{
-			ttris->coord[j][0] = col;
-			ttris->coord[j][1] = line;
+			ttris->coord[j][1] = col;
+			ttris->coord[j][0] = line;
 			j++;
 			i++;
 			col++;

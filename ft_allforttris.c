@@ -88,7 +88,7 @@ t_tris		*ft_replacettris(t_tris *ttris)
 	j = 0;
 	while (i < 2)
 	{
-		n0 = ttris->coord[j][0];
+		n0 = ttris->coord[j][i];
 		while (j < 4)
 		{
 			if (ttris->coord[j][i] < n0)
