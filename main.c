@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "fillit.h"
 
 int			main(int ac, char **av)
@@ -18,8 +17,6 @@ int			main(int ac, char **av)
 	t_tris		**ttris;
 	char		**grid;
 	int			i;
-	int			k;
-	int			l;
 
 	i = 0;
 	if (ac > 2)
@@ -28,70 +25,34 @@ int			main(int ac, char **av)
 	grid = ft_creategrid(ft_rootforgrid(ttris), ft_rootforgrid(ttris));
 	while (ft_fillit(grid, ttris, 0, 0) == 0)
 			grid = ft_modifgrid(grid);
-	// Print writed grid
-	k = 0;
-	l = 0;
-	while (grid[k])
-	{
-		l = 0;
-		while (grid[k][l])
-		{
-			ft_putchar(grid[k][l]);
-			l++;
-		}
-		ft_putendl("");
-		k++;
-	}
+	ft_printgrid(grid);
 	return (0);
 }
 
 int			ft_fillit(char **grid, t_tris **ttris, int x, int y)
 {
-	int	k;
-	int	l;
-
 	while (grid[x + 1] != NULL)
 	{
 		y = 0;
 		while (grid[x][y] != '\0')
 		{
-			grid = ft_deletettris(grid, ttris[0]);
-			if (ft_checkttris(grid, ttris[0], x, y) == 1) // If ttris VALID
+			if (ttris[1] != NULL)
+				grid = ft_deletettris(grid, ttris[0]);
+			if (ft_checkttris(grid, ttris[0], x, y) == 1)
 			{
 				grid = ft_writettris(grid, ttris[0], x, y);
-				////////////////////////////////////// DEBUG
-				ft_putendl("");
-				ft_putendl("--------------");
-				ft_putendl("Initialisation");
-				ft_putstr("Le ttris ");
-				ft_putchar(ttris[0]->ltr);
-				ft_putendl("");
-				ft_putstr("Ecrit en ");
-				ft_putnbr(x), ft_putchar('/'), ft_putnbr(y);
-				ft_putendl("");
-				ft_putendl("--------------");
-
-				k = 0;
-				l = 0;
-				while (grid[k])
-				{
-					l = 0;
-					while (grid[k][l])
-					{
-						ft_putchar(grid[k][l]);
-						l++;
-					}
-					ft_putendl("");
-					k++;
-				}
-				/////////////////////////////////////// DEBUG
-
-				ft_fillit(grid, ttris + 1, 0, 0);
+				if (ttris[1] != NULL)
+					ft_fillit(grid, ttris + 1, 0, 0);
 			}
-			ft_putnbr(x), ft_putnbr(y), ft_putchar(' ');
 			y++;
 		}
 		x++;
 	}
-	return (0);
+	if (ttris[1] == NULL && ft_isingrid(grid, ttris[0]->ltr) == 1)
+	{
+		ttris[0] = NULL;
+		return (1);
+	}
+	else
+		return (0);
 }

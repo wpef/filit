@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "fillit.h"
 
-int			ft_rootforgrid(t_tris **ttris)
+int		ft_rootforgrid(t_tris **ttris)
 {
 	int		nb;
 
@@ -70,4 +69,26 @@ char		**ft_modifgrid(char **grid)
 		count++;
 	newtab = ft_creategrid(count + 1, count + 1);
 	return (newtab);
+}
+
+int	ft_isingrid(char **grid, char ltr)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (grid[i] != NULL)
+	{
+		j = 0;
+		while (grid[i][j])
+		{
+			if (grid[i][j] == ltr)
+			{
+				return (1);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }

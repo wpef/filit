@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "fillit.h"
 
 int			ft_checkttris(char **grid, t_tris *ttris, int gx, int gy)
@@ -107,32 +106,22 @@ t_tris		*ft_replacettris(t_tris *ttris)
 	return (ttris);
 }
 
-int		*ft_whereisttris(char **grid, t_tris **ttris)
+void		ft_printgrid(char **grid)
 {
-		int	ret[2];
-		int	x;
-		int	y;
-		int	*retour;
+	int	k;
+	int	l;
 
-		retour = ret;
-		x = 0;
-		y = 0;
-		ret[0] = 0;
-		ret[1] = 0;
-		while (grid[x] != NULL)
+	k = 0;
+	l = 0;
+	while (grid[k])
+	{
+		l = 0;
+		while (grid[k][l])
 		{
-			while (grid[x][y] != '\0')
-			{
-				if (grid[x][y] == ttris[0]->ltr)
-				{
-					if (x > ret[0])
-				 		ret[0] = x;
-					if (y > ret[1])
-						ret[1] = y;
-				}
-				y++;
-			}
-			x++;
+			ft_putchar(grid[k][l]);
+			l++;
 		}
-		return (retour);
+		ft_putendl("");
+		k++;
+	}
 }

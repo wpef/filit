@@ -19,8 +19,8 @@
 
 typedef struct {
 	char	ltr;
-	int		coord[4][2];
-}			t_tris;
+	int	coord[4][2];
+}		t_tris;
 
 t_tris		**ft_createttris(char *file);
 t_tris		*ft_makettris(char *buf);
@@ -37,6 +37,7 @@ t_tris		*ft_replacettris(t_tris *ttris);
 int		ft_fillit(char **grid, t_tris **ttris, int x, int y);
 int		*ft_whereisttris(char **grid, t_tris **trtis);
 int		ft_checkgridlen(char **grid);
-
+int		ft_isingrid (char **grid, char ltr);
+void		ft_printgrid(char **grid);
 
 #endif
