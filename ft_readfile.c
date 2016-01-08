@@ -59,12 +59,10 @@ t_tris	**ft_filltab(int fd, t_tris **tab)
 t_tris		*ft_makettris(char *buf)
 {
 	t_tris	*ttris;
-	int 	col;
 	int 	line;
 	int 	i;
 	int		j;
 
-	col = 0; //i % 4 maggle
 	line = 0;
 	i = 0;
 	j = 0;
@@ -73,23 +71,16 @@ t_tris		*ft_makettris(char *buf)
 	{
 		if (buf[i] == '#')
 		{
-			ttris->coord[j][1] = col;
+			ttris->coord[j][1] = i % 4;
 			ttris->coord[j][0] = line;
 			j++;
 			i++;
-			col++;
 		}
 		while (buf[i] == '.')
-		{
 			i++;
-			col++;
-		}
 		if (buf[i] == '\n')
-		{
-			col = 0;
 			line++;
 			i++;
-		}
 	}
 	return (ft_replacettris(ttris));
 }
