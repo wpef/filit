@@ -21,23 +21,28 @@ t_tris		**ft_createttris(char *file)
 
 	ttris = ft_readfile(file);
 	fd = open(file, O_RDONLY);
+	tab = (t_tris **)malloc(sizeof(t_tris *) * ttris + 1);
+	tab[ttris] = NULL;
 	if (ttris <= 0)
 	{
 		close(fd);
 		ft_putendl("error");
-		return(0);
+		return(NULL);
 	}
-	else if (tab = (t_tris **)malloc(sizeof(t_tris *) * ttris + 1))
+	else if (!tab)
 	{
-		tab[ttris] = NULL;
-		ft_filltab(fd, tab);
+		close(fd);
+		ft_putendl("error");
+		return(NULL);
 	}
+	tab = ft_filltab(fd);
 	close(fd);
 	return (tab);
 }
 
-char		ft_filltab(int fd, char *tab)
+t_tris	**ft_filltab(int fd)
 {
+	t_tris	**tab;
 	char	buf[21];
 	int		i;
 
