@@ -71,7 +71,7 @@ t_tris		*ft_makettris(char *buf)
 	{
 		if (buf[i] == '#')
 		{
-			ttris->coord[j][1] = i % 4;
+			ttris->coord[j][1] = (i % 5) - 1;
 			ttris->coord[j][0] = line;
 			j++;
 			i++;
@@ -79,8 +79,10 @@ t_tris		*ft_makettris(char *buf)
 		while (buf[i] == '.')
 			i++;
 		if (buf[i] == '\n')
+		{
 			line++;
 			i++;
+		}
 	}
 	return (ft_replacettris(ttris));
 }
