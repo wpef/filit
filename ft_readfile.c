@@ -17,21 +17,30 @@ t_tris		**ft_createttris(char *file)
 	int		fd;
 	int		ret;
 	int		ttris;
-	int		i;
-	char	buf[21];
 	t_tris	**tab;
 
-	i = 0;
 	ttris = ft_readfile(file);
-	if (tetris <= 0)
+	fd = open(file, O_RDONLY);
+	if (ttris <= 0)
 	{
+		close(fd);
 		ft_putendl("error");
-		ft_end();
 		return(0);
 	}
-	if (tab = (t_tris **)malloc(sizeof(t_tris *) * ttris + 1))
+	else if (tab = (t_tris **)malloc(sizeof(t_tris *) * ttris + 1))
+	{
 		tab[ttris] = NULL;
-	fd = open(file, O_RDONLY);
+		ft_filltab(fd, tab);
+	}
+	return (tab);
+}
+
+char		ft_filltab(int fd, char *tab)
+{
+	char	buf[21];
+	int		i;
+
+	i = 0;
 	while ((ret = read (fd, buf, 21)) > 0)
 	{
 		buf[20] = '\0';
@@ -39,6 +48,7 @@ t_tris		**ft_createttris(char *file)
 		tab[i]->ltr = 'A' + i;
 		i++;
 	}
+	close(fd);
 	return (tab);
 }
 
@@ -168,7 +178,7 @@ int			ft_readfile(char *file)
 		ret2 = read (fd, line, 1);
 		if (line[0] != '\n')
 		{
-			ft_putendl("error : NOT 4 LINES or NO NEW LINE");
+			ft_putendl("error");
 			return (0);
 		}
 		ttris++;
@@ -177,6 +187,5 @@ int			ft_readfile(char *file)
 	{	
 		return (0);
 	}
-	close(fd);
 	return (ttris);
 }
