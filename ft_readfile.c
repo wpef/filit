@@ -66,7 +66,7 @@ t_tris		*ft_makettris(char *buf)
 	int 	i;
 	int		j;
 
-	col = 0;
+	col = 0; //i % 4 maggle
 	line = 0;
 	i = 0;
 	j = 0;
