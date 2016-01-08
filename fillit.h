@@ -39,5 +39,6 @@ int			*ft_whereisttris(char **grid, t_tris **trtis);
 int			ft_checkgridlen(char **grid);
 int			ft_isingrid (char **grid, char ltr);
 void		ft_printgrid(char **grid);
+t_tris		**ft_filltab(int fd, t_tris **tab);
 
 #endif
