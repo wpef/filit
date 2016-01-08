@@ -23,23 +23,21 @@ t_tris		**ft_createttris(char *file)
 
 	i = 0;
 	ttris = ft_readfile(file);
-	if (ttris > 0)
+	if (tetris <= 0)
 	{
-		if (tab = (t_tris **)malloc(sizeof(t_tris *) * ttris + 1))
-			tab[ttris] = NULL;
-		fd = open(file, O_RDONLY);
-		while ((ret = read (fd, buf, 21)) > 0)
-		{
-			buf[20] = '\0';
-			tab[i] = ft_makettris(buf);
-			tab[i]->ltr = 'A' + i;
-			i++;
-		}
+		ft_putendl("error");
+		ft_end();
+		return(0);
 	}
-	else
+	if (tab = (t_tris **)malloc(sizeof(t_tris *) * ttris + 1))
+		tab[ttris] = NULL;
+	fd = open(file, O_RDONLY);
+	while ((ret = read (fd, buf, 21)) > 0)
 	{
-		ft_putendl("error : INVALID FILE");
-		return (0);
+		buf[20] = '\0';
+		tab[i] = ft_makettris(buf);
+		tab[i]->ltr = 'A' + i;
+		i++;
 	}
 	return (tab);
 }
