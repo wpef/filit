@@ -6,7 +6,7 @@
 #    By: fde-monc <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/04 22:58:04 by fde-monc          #+#    #+#              #
-#    Updated: 2015/12/21 19:00:28 by fde-monc         ###   ########.fr        #
+#    Updated: 2016/01/08 17:31:31 by fde-monc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,11 @@ CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRC = ft_readfile.c \
+SRC =	ft_readfile.c \
+		ft_allforgrid.c \
+		ft_allforttris.c \
+		ft_readfile.c \
+		main.c
 
 OBJECTS = $(SRC:.c=.o)
 
