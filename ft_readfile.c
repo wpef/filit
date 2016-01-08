@@ -6,13 +6,13 @@
 /*   By: fde-monc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 15:39:15 by fde-monc          #+#    #+#             */
-/*   Updated: 2015/12/24 12:08:52 by hponcet          ###   ########.fr       */
+/*   Updated: 2016/01/08 17:34:07 by hponcet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_tris		**ft_createttris(char *file) //Modif du nom (deja utilise)
+t_tris		**ft_createttris(char *file)
 {
 	int		fd;
 	int		ret;
@@ -25,14 +25,14 @@ t_tris		**ft_createttris(char *file) //Modif du nom (deja utilise)
 	ttris = ft_readfile(file);
 	if (ttris > 0)
 	{
-		tab = (t_tris **)malloc(sizeof(t_tris *) * ttris + 1);
-		tab[ttris] = NULL;
+		if (tab = (t_tris **)malloc(sizeof(t_tris *) * ttris + 1))
+			tab[ttris] = NULL;
 		fd = open(file, O_RDONLY);
 		while ((ret = read (fd, buf, 21)) > 0)
 		{
 			buf[20] = '\0';
 			tab[i] = ft_makettris(buf);
-			tab[i]->ltr = 'A'+i;
+			tab[i]->ltr = 'A' + i;
 			i++;
 		}
 	}
@@ -44,7 +44,7 @@ t_tris		**ft_createttris(char *file) //Modif du nom (deja utilise)
 	return (tab);
 }
 
-t_tris		*ft_makettris(char *buf) // modif du nom pour la clartee
+t_tris		*ft_makettris(char *buf)
 {
 	t_tris	*ttris;
 	int 	col;

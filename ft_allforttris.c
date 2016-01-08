@@ -6,7 +6,7 @@
 /*   By: hponcet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/23 00:24:45 by hponcet           #+#    #+#             */
-/*   Updated: 2015/12/24 12:31:39 by hponcet          ###   ########.fr       */
+/*   Updated: 2016/01/08 16:36:17 by hponcet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int			ft_checkttris(char **grid, t_tris *ttris, int gx, int gy)
 	int			bx;
 	int			by;
 	int			i;
-	
+
 	y = 0;
 	i = 0;
 	while (i < 4)
@@ -77,7 +77,7 @@ char		**ft_deletettris(char **grid, t_tris *ttris)
 	return (grid);
 }
 
-t_tris		*ft_replacettris(t_tris *ttris) 
+t_tris		*ft_replacettris(t_tris *ttris)
 {
 	int		n0;
 	int		i;
