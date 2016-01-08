@@ -32,6 +32,7 @@ t_tris		**ft_createttris(char *file)
 		tab[ttris] = NULL;
 		ft_filltab(fd, tab);
 	}
+	close(fd);
 	return (tab);
 }
 
@@ -173,19 +174,16 @@ int			ft_readfile(char *file)
 	while ((ret = read(fd, buf, 20)) > 0)
 	{
 		buf[20] = '\0';
-		if (!ft_isvalid(buf))
-			return (0);
-		ret2 = read (fd, line, 1);
-		if (line[0] != '\n')
-		{
-			ft_putendl("error");
-			return (0);
-		}
+		ft_checkchar(buf);
+			if (!ft_isvalid(buf))
+				return (0);
+			ret2 = read (fd, line, 1);
+			if (line[0] != '\n')
+			{
+				ft_putendl("error");
+				return (0);
+			}
 		ttris++;
-	}
-	if (ret2 >= 1)
-	{	
-		return (0);
 	}
 	return (ttris);
 }
