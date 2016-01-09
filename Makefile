@@ -20,7 +20,7 @@ CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRC =	ft_readfile.c \
+SRC =	ft_checkfile.c \
 		ft_allforgrid.c \
 		ft_allforttris.c \
 		ft_readfile.c \
