@@ -23,17 +23,9 @@ t_tris		**ft_createttris(char *file)
 	tab = (t_tris **)malloc(sizeof(t_tris *) * ttris + 1);
 	tab[ttris] = NULL;
 	if (ttris <= 0)
-	{
-		close(fd);
-		ft_putendl("error");
 		return(NULL);
-	}
 	else if (!tab)
-	{
-		close(fd);
-		ft_putendl("error");
 		return(NULL);
-	}
 	tab = ft_filltab(fd, tab);
 	close(fd);
 	return (tab);
@@ -136,23 +128,16 @@ int			ft_isvalid(char *buf)
 				j++;
 			}
 			else
-			{
-				ft_putendl("error : WRONG CHAR");
 				return (0);
-			}
 		}
 		if (buf[i] == '\n' && j == 4)
 			i++;
 		else
-		{
-			ft_putendl("error : LINE TOO LONG");
 			return (0);
-		}
 	}
 	touch = ft_touch(buf);
 	if (block == 4 && (touch == 6 || touch == 8))
 		return (1);
-	ft_putendl ("error : SHAPE IS NOT VALID");
 	return (0);
 }
 

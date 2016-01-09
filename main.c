@@ -22,6 +22,11 @@ int			main(int ac, char **av)
 	if (ac > 2)
 		return (0);
 	ttris = ft_createttris(av[1]);
+	if (ttris <= 0)
+	{
+		ft_putendl("error");
+		return (0);
+	}
 	grid = ft_creategrid(ft_rootforgrid(ttris), ft_rootforgrid(ttris));
 	while (ft_fillit(grid, ttris, 0, 0) == 0)
 			grid = ft_modifgrid(grid);
