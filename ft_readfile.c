@@ -159,10 +159,7 @@ int			ft_readfile(char *file)
 			return (0);
 		ret2 = read (fd, line, 1);
 		if (line[0] != '\n')
-		{
-			ft_putendl("error");
 			return (0);
-		}
 		ttris++;
 	}
 	return (ttris);
