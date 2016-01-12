@@ -6,7 +6,7 @@
 /*   By: hponcet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/22 23:13:38 by hponcet           #+#    #+#             */
-/*   Updated: 2016/01/12 17:55:08 by hponcet          ###   ########.fr       */
+/*   Updated: 2016/01/12 18:00:47 by hponcet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int			main(int ac, char **av)
 	ft_printgrid(grid);
 	return (0);
 }
-#define DEBUG printf("%s %d %c\n", __func__, __LINE__, ttris[0]->ltr)
 int			ft_fillit(char **grid, t_tris **ttris, int x, int y)
 {
 	while (grid[x] != NULL)
@@ -44,26 +43,21 @@ int			ft_fillit(char **grid, t_tris **ttris, int x, int y)
 		y = 0;
 		while (grid[x][y] != '\0')
 		{
-			DEBUG;
 			if (ttris[1] != NULL && ft_isingrid(grid, ttris[0]->ltr) == 1)
 				ft_deletettris(grid, ttris[0]);
-			DEBUG;
 			if (ft_checkttris(grid, ttris[0], x, y) == 1 && ttris[1] != NULL)
 			{
-				DEBUG;
 				grid = ft_writettris(grid, ttris[0], x, y);
 				ft_putendl("---------");
 				ft_printgrid(grid);
 				ft_putendl("---------");
 				ft_fillit(grid, ttris + 1, 0, 0);
 			}
-			DEBUG;
 			if (ft_checkttris(grid, ttris[0], x, y) == 1 && ttris[1] == NULL)
 			{
 				grid = ft_writettris(grid, ttris[0], x, y);
 				ft_printgrid(grid);
 			}
-			DEBUG;
 			if (ft_isingrid(grid, ttris[0]->ltr) == 1 && ttris[1] == NULL)
 			{
 				ft_putendl("on est jsute avant le return 1");
