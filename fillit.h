@@ -6,7 +6,7 @@
 /*   By: fde-monc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/21 17:00:41 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/01/08 16:33:00 by hponcet          ###   ########.fr       */
+/*   Updated: 2016/01/12 18:05:56 by hponcet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "libft.h"
 # include <fcntl.h>
-# include <stdio.h>
 
 typedef struct {
 	char	ltr;
