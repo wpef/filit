@@ -6,11 +6,12 @@
 /*   By: hponcet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/23 00:24:45 by hponcet           #+#    #+#             */
-/*   Updated: 2016/01/12 18:00:45 by hponcet          ###   ########.fr       */
+/*   Updated: 2016/01/12 19:42:03 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
 int			ft_checkttris(char **grid, t_tris *ttris, int gx, int gy)
 {
 	int			y;

@@ -6,7 +6,7 @@
 /*   By: fde-monc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 15:10:07 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/01/12 15:12:45 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/01/12 19:40:46 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int			ft_touch(char *buf)
 {
-	int 	i;
-	int		touch;
+	int	i;
+	int	touch;
 
 	i = 0;
 	touch = 0;
@@ -31,7 +31,7 @@ int			ft_touch(char *buf)
 				touch++;
 			if (buf[i + 5] == '#')
 				touch++;
-			if (buf [i - 5] == '#')
+			if (buf[i - 5] == '#')
 				touch++;
 		}
 		i++;
@@ -90,7 +90,7 @@ int			ft_readfile(char *file)
 		buf[20] = '\0';
 		if (!ft_isvalid(buf))
 			return (0);
-		ret2 = read (fd, line, 1);
+		ret2 = read(fd, line, 1);
 		if (line[0] != '\n')
 			return (0);
 		ttris++;
