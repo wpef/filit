@@ -6,7 +6,7 @@
 /*   By: hponcet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/23 05:04:33 by hponcet           #+#    #+#             */
-/*   Updated: 2016/01/08 16:34:57 by hponcet          ###   ########.fr       */
+/*   Updated: 2016/01/12 17:35:50 by hponcet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char	**ft_creategrid(int x, int y)
 
 	i = 0;
 	grid = ft_createtab(x, y);
+	grid[x] = NULL;
 	while (grid[i] != NULL)
 	{
 		j = 0;

@@ -6,12 +6,12 @@
 /*   By: hponcet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/23 00:24:45 by hponcet           #+#    #+#             */
-/*   Updated: 2016/01/08 16:36:17 by hponcet          ###   ########.fr       */
+/*   Updated: 2016/01/12 17:58:08 by hponcet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
+#define DEBUG printf("%s %d %c\n", __func__, __LINE__, ttris->ltr)
 int			ft_checkttris(char **grid, t_tris *ttris, int gx, int gy)
 {
 	int			y;
@@ -21,15 +21,17 @@ int			ft_checkttris(char **grid, t_tris *ttris, int gx, int gy)
 
 	y = 0;
 	i = 0;
+	DEBUG;
 	while (i < 4)
 	{
+	DEBUG;
 		bx = gx + ttris->coord[y][0];
 		by = gy + ttris->coord[y][1];
-		if (bx > ft_checkgridlen(grid))
-			return (2);
-		if (grid[bx][by] != '.' || bx > ft_checkgridlen(grid)
-				|| by > ft_checkgridlen(grid))
+	DEBUG;
+		if (bx >= ft_checkgridlen(grid)
+				|| by >= ft_checkgridlen(grid) || grid[bx][by] != '.')
 			return (0);
+	DEBUG;
 		y++;
 		i++;
 	}
