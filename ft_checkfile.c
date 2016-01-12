@@ -6,7 +6,7 @@
 /*   By: fde-monc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 15:10:07 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/01/12 19:40:46 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/01/12 20:31:21 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,7 @@ int			ft_readfile(char *file)
 			return (0);
 		ttris++;
 	}
+	if (ret2 >= 1)
+		return (0);
 	return (ttris);
 }
