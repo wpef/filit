@@ -6,7 +6,7 @@
 /*   By: hponcet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/22 23:13:38 by hponcet           #+#    #+#             */
-/*   Updated: 2016/01/12 18:04:06 by hponcet          ###   ########.fr       */
+/*   Updated: 2016/01/12 19:38:49 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int			main(int ac, char **av)
 	ft_printgrid(grid);
 	return (0);
 }
+
 int			ft_fillit(char **grid, t_tris **ttris, int x, int y)
 {
 	while (grid[x] != NULL)
