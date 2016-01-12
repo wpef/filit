@@ -6,7 +6,7 @@
 /*   By: hponcet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/23 00:24:45 by hponcet           #+#    #+#             */
-/*   Updated: 2016/01/08 16:36:17 by hponcet          ###   ########.fr       */
+/*   Updated: 2016/01/12 16:43:22 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ int			ft_checkttris(char **grid, t_tris *ttris, int gx, int gy)
 	{
 		bx = gx + ttris->coord[y][0];
 		by = gy + ttris->coord[y][1];
-		if (bx > ft_checkgridlen(grid))
-			return (2);
 		if (grid[bx][by] != '.' || bx > ft_checkgridlen(grid)
 				|| by > ft_checkgridlen(grid))
 			return (0);
