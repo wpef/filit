@@ -6,7 +6,7 @@
 /*   By: hponcet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/22 23:13:38 by hponcet           #+#    #+#             */
-/*   Updated: 2016/01/12 16:10:07 by hponcet          ###   ########.fr       */
+/*   Updated: 2016/01/12 16:28:58 by hponcet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int			main(int ac, char **av)
 
 int			ft_fillit(char **grid, t_tris **ttris, int x, int y)
 {
-	while (grid[x + 1] != NULL)
+	while (grid[x] != NULL)
 	{
 		y = 0;
 		while (grid[x][y] != '\0')
@@ -55,13 +55,17 @@ int			ft_fillit(char **grid, t_tris **ttris, int x, int y)
 				ft_fillit(grid, ttris + 1, 0, 0);
 			}
 			if (ft_checkttris(grid, ttris[0], x, y) == 1 && ttris[1] == NULL)
+				grid = ft_writettris(grid, ttris[0], x, y);
+			if (ft_isingrid(grid, ttris[0]->ltr) == 1 && ttris[1] == NULL)
+			{
+				ft_putendl("on est jsute avant le return 1");
 				ttris[0] = NULL;
+				return (1);
+			}
 			y++;
 		}
 		x++;
 	}
-	if (ft_checkttris(grid, ttris[0], x, y) == 1 && ttris[1] == NULL)
-		return (1);
-	else
-		return (0);
+	ft_putendl("on est jsute avant le return 0");
+	return (0);
 }
