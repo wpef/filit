@@ -78,21 +78,20 @@ int			ft_readfile(char *file)
 	int		ttris;
 	char	buf[21];
 	char	line[1];
-	int		ret2;
 
 	ttris = 0;
 	fd = open(file, O_RDONLY);
-	while ((ret = read(fd, buf, 20)) > 0)
+	while ((read(fd, buf, 20)) > 0)
 	{
 		buf[20] = '\0';
 		if (!ft_isvalid(buf))
 			return (0);
-		ret2 = read(fd, line, 1);
+		ret = read(fd, line, 1);
 		if (line[0] != '\n')
 			return (0);
 		ttris++;
 	}
-	if (ret2 >= 1)
+	if (ret >= 1)
 		return (0);
 	return (ttris);
 }
