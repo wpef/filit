@@ -60,3 +60,6 @@ fclean: clean
 	@rm -rf $(NAME)
 
 re: fclean all
+
+nclean: re 
+	make clean
