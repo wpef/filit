@@ -43,14 +43,12 @@ int			ft_isvalid(char *buf)
 {
 	int		i;
 	int		block;
-	int		j;
 	int		touch;
 
 	i = 0;
 	block = 0;
 	while (buf[i])
 	{
-		j = 0;
 		while (buf[i] != '\n')
 		{
 			if (buf[i] == '.' || buf[i] == '#')
@@ -58,12 +56,11 @@ int			ft_isvalid(char *buf)
 				if (buf[i] == '#')
 					block++;
 				i++;
-				j++;
 			}
 			else
 				return (0);
 		}
-		if (buf[i] == '\n' && j == 4)
+		if (buf[i] == '\n' && (i % 5) == 4)
 			i++;
 		else
 			return (0);
