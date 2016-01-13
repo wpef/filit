@@ -24,7 +24,6 @@ SRC =	ft_checkfile.c \
 		ft_allforgrid.c \
 		ft_allforttris.c \
 		ft_allfortab.c \
-		ft_checkfile.c \
 		main.c
 
 OBJECTS = $(SRC:.c=.o)
