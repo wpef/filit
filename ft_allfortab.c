@@ -66,15 +66,10 @@ t_tris		*ft_makettris(char *buf)
 			ttris->coord[j][1] = (i % 5) - 1;
 			ttris->coord[j][0] = line;
 			j++;
-			i++;
 		}
-		while (buf[i] == '.')
-			i++;
 		if (buf[i] == '\n')
-		{
 			line++;
-			i++;
-		}
+		i++;
 	}
 	return (ft_replacettris(ttris));
 }
