@@ -43,11 +43,11 @@ all: $(NAME)
 $(NAME): $(OBJECTS) $(LIB_FILE)
 	$(CC) $(CFLAGS) $(OBJECTS) -L $(INC) -lft -I$(INC) -o $(NAME)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -I$(INC) -c $<
-
 $(LIB_FILE) : 
 	make nclean -C $(INC)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -I$(INC) -c $<
 
 test : all
 	./fillit test.fillit
@@ -56,16 +56,7 @@ test : all
 clean :
 	@rm -rf *.o
 
-nclean : all proper
-
 fclean: clean
 	@rm -rf $(NAME)
-
-proper : all clean
-	@rm -rf ._*
-	@rm -rf *.swp
-
-update :
-	cp -Rf ../Libft/* ./Includes
 
 re: fclean all

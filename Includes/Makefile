@@ -97,9 +97,8 @@ clean :
 fclean: clean
 	rm -rf $(NAME)
 
-proper : all clean
-	rm -rf *.out
-	rm -rf ._*
+nclean: re 
+	make clean
 
 re: fclean all
 
