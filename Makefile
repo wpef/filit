@@ -23,6 +23,7 @@ CFLAGS = -Wall -Werror -Wextra
 SRC =	ft_checkfile.c \
 		ft_allforgrid.c \
 		ft_allforttris.c \
+		ft_allfortab.c \
 		ft_readfile.c \
 		main.c
 
