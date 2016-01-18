@@ -6,7 +6,7 @@
 /*   By: hponcet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 14:56:31 by hponcet           #+#    #+#             */
-/*   Updated: 2015/12/22 20:29:19 by hponcet          ###   ########.fr       */
+/*   Updated: 2016/01/18 16:10:52 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,9 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putnbr(int n);
 
-//*************** Fonctions de gestion de Tableaux 2D ****************//
 char				**ft_createtab(int x, int y);
 char				**ft_modiftab(char **tab, int newx, int newy);
 
-//*************** Structure basique ********************//
 typedef struct		s_list
 {
 	void			*content;
@@ -90,7 +88,6 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-//**************** Fonctions pour listes chainees ****************//
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
@@ -99,7 +96,6 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					ft_lstlen(t_list *list);
 
-//****************** Fonctions Mathematiques ********************//
 int					ft_abs(int i);
 int					ft_rootsquare(int n);
 

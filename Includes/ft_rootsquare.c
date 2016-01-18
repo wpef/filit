@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rootsquare.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hponcet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: fde-monc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/22 16:00:12 by hponcet           #+#    #+#             */
-/*   Updated: 2015/12/22 20:23:30 by hponcet          ###   ########.fr       */
+/*   Created: 2016/01/18 16:23:32 by fde-monc          #+#    #+#             */
+/*   Updated: 2016/01/18 16:23:34 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 int		ft_rootsquare(int n)
@@ -18,7 +19,7 @@ int		ft_rootsquare(int n)
 	i = 1;
 	if (n == 0)
 		return (0);
-	while (i < (n / 2))	
+	while (i < (n / 2))
 	{
 		if ((i * i) >= n)
 			return (ft_abs(i));
