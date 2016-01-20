@@ -6,7 +6,7 @@
 /*   By: fde-monc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/21 17:00:41 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/01/12 18:05:56 by hponcet          ###   ########.fr       */
+/*   Updated: 2016/01/18 16:10:29 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ int			ft_checkgridlen(char **grid);
 int			ft_isingrid (char **grid, char ltr);
 void		ft_printgrid(char **grid);
 t_tris		**ft_filltab(int fd, t_tris **tab);
+int			ft_block(char *buf);
 
 #endif

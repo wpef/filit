@@ -12,6 +12,24 @@
 
 #include "fillit.h"
 
+int			ft_block(char *buf)
+{
+	int	block;
+	int	i;
+
+	block = 0;
+	i = 0;
+	while (buf[i])
+	{
+		if (buf[i] == '#')
+			block++;
+		i++;
+	}
+	if (block == 4)
+		return (1);
+	return (0);
+}
+
 int			ft_touch(char *buf)
 {
 	int	i;
@@ -36,27 +54,22 @@ int			ft_touch(char *buf)
 		}
 		i++;
 	}
-	return (touch);
+	if (touch == 6 || touch == 8)
+		return (1);
+	return (0);
 }
 
 int			ft_isvalid(char *buf)
 {
 	int		i;
-	int		block;
-	int		touch;
 
 	i = 0;
-	block = 0;
 	while (buf[i])
 	{
 		while (buf[i] != '\n')
 		{
 			if (buf[i] == '.' || buf[i] == '#')
-			{
-				if (buf[i] == '#')
-					block++;
 				i++;
-			}
 			else
 				return (0);
 		}
@@ -65,8 +78,7 @@ int			ft_isvalid(char *buf)
 		else
 			return (0);
 	}
-	touch = ft_touch(buf);
-	if (block == 4 && (touch == 6 || touch == 8))
+	if (ft_touch(buf) && ft_block(buf))
 		return (1);
 	return (0);
 }
