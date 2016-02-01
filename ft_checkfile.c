@@ -6,7 +6,7 @@
 /*   By: fde-monc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 15:10:07 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/01/27 15:19:20 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/02/01 17:18:19 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,20 @@ int			ft_block(char *buf)
 {
 	int	block;
 	int	i;
+	int c;
 
 	block = 0;
 	i = 0;
-    while (buf[i])
-    {
-        if (buf[i] == '#')
-            block++;
-        else if (buf[i] == '.')
-            c++;
-        i++;
-    }	if (block == 4)
+	c = 0;
+	while (buf[i])
+	{
+		if (buf[i] == '#')
+			block++;
+		else if (buf[i] == '.')
+			c++;
+		i++;
+	}
+	if (block == 4 && c == 12)
 		return (1);
 	return (0);
 }
