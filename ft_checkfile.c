@@ -19,13 +19,14 @@ int			ft_block(char *buf)
 
 	block = 0;
 	i = 0;
-	while (buf[i])
-	{
-		if (buf[i] == '#')
-			block++;
-		i++;
-	}
-	if (block == 4)
+    while (buf[i])
+    {
+        if (buf[i] == '#')
+            block++;
+        else if (buf[i] == '.')
+            c++;
+        i++;
+    }	if (block == 4)
 		return (1);
 	return (0);
 }
