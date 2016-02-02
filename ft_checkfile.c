@@ -6,7 +6,7 @@
 /*   By: fde-monc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 15:10:07 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/02/01 17:42:30 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/02/02 17:29:28 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,10 +104,7 @@ int			ft_readfile(char *file)
 			return (0);
 		ret = read(fd, line, 1);
 		if (ret && line[0] != '\n')
-		{
-			ft_putendl("NO NEW LINE");
 			return (0);
-		}
 		ttris++;
 	}
 	if (ret >= 1)
