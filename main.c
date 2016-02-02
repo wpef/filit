@@ -6,7 +6,7 @@
 /*   By: hponcet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/22 23:13:38 by hponcet           #+#    #+#             */
-/*   Updated: 2016/01/20 18:33:31 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/02/02 17:17:45 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int			main(int ac, char **av)
 	i = 0;
 	if (ac > 2)
 	{
-		ft_putstr("error");
+		ft_putendl("error");
 		return (0);
 	}
 	ttris = ft_createttris(av[1]);

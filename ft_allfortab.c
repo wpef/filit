@@ -6,7 +6,7 @@
 /*   By: fde-monc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 15:12:06 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/01/12 19:45:36 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/02/02 17:27:39 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ t_tris		**ft_createttris(char *file)
 	t_tris	**tab;
 
 	ttris = ft_readfile(file);
+	if (ttris <= 0)
+		return (NULL);
 	fd = open(file, O_RDONLY);
 	tab = (t_tris **)malloc(sizeof(t_tris *) * ttris + 1);
 	tab[ttris] = NULL;
-	if (ttris <= 0)
-		return (NULL);
-	else if (!tab)
+	if (!tab)
 		return (NULL);
 	tab = ft_filltab(fd, tab);
 	close(fd);
