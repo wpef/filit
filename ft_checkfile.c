@@ -97,7 +97,7 @@ int			ft_readfile(char *file)
 
 	ttris = 0;
 	fd = open(file, O_RDONLY);
-	while ((read(fd, buf, 20)) > 0)
+	while ((read(fd, buf, 20)) == 20)
 	{
 		buf[20] = '\0';
 		if (!ft_isvalid(buf))
