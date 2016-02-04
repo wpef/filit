@@ -6,7 +6,7 @@
 /*   By: hponcet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/22 23:13:38 by hponcet           #+#    #+#             */
-/*   Updated: 2016/02/02 17:17:45 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/02/04 19:16:13 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int			main(int ac, char **av)
 	int			i;
 
 	i = 0;
-	if (ac > 2)
+	if (ac != 2)
 	{
-		ft_putendl("error");
+		ft_putendl("usage:\t./fillit source_file");
 		return (0);
 	}
 	ttris = ft_createttris(av[1]);
